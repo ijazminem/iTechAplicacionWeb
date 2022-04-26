@@ -1,0 +1,50 @@
+﻿@model iTechShop.Models.Contacto
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-5">
+
+            <h2>Contáctanos enviando un mensaje</h2>
+                <br />
+           <form method="post" asp-action="Enviar">
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+               <label asp-for="Email" class="form-label">Email:</label>
+               <input asp-for="Email" class="form-control" />
+            
+          </div>
+          <br />
+
+        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+            <option selected>Seleccione una opción</option>
+            <option value="1">Queja</option>
+            <option value="2">Felicitación</option>
+            <option value="3">Duda</option>
+            <option value="4">Otra</option>
+          </select>
+          <br />
+
+          <!-- Message input -->
+          <div class="form-outline mb-4">
+            <label asp-for="Mensaje" class="form-label">Escribe tu mensaje:</label>
+            <textarea asp-for="Mensaje" class="form-control"></textarea>
+
+           
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
+           
+        </form>
+
+
+        </div>
+    </div>
+</div>
+

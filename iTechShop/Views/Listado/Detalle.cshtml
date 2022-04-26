@@ -1,0 +1,60 @@
+﻿
+@model iTechShop.Models.ViewModels.DetalleVM
+<div class="">
+    <form method="post">
+        <input asp-for="@Model.Producto.Id" hidden />
+      
+        <div class="container backgroundWhite pt-4"  >
+            <div class="card" style="border:1px solid #000000; ">
+                <div class="card-header bg-dark text-light container">
+                    <div class="col-12 col-md-6">
+                        <h1 class="text-white">@Model.Producto.NombreProducto</h1>
+  
+                        <h2 class="text-warning"> @((Model.Producto.Precio).ToString("c"))</h2>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="container rounded p-2">
+                        <div class="row">
+                            <div class="col-12 col-lg-4 p-1 text-center">
+                                <img src="@WC.ImagenRuta@Model.Producto.ImagenUrl" width="100%" class="rounded" />
+                            </div>
+                            <div class="col-12 col-lg-8">
+                                <div class="row pl-3">
+
+                                    <div class="col-12">
+                                        <span class="badge p-3 border text-dark" style="background-color:lavenderblush">@Model.Producto.Categoria.NombreCategoria</span>
+                                        <span class="badge p-3 border text-dark" style="background-color:azure">@Model.Producto.TipoAplicacion.Nombre</span>
+                                        <h3 class="text-success"></h3>
+
+                                        <p class="text-secondary">@Html.Raw(Model.Producto.DescripcionProducto)</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-light">
+                    <div class="row">
+                        <div class="col-12 col-md-6 pb-1 ">
+                            <a asp-action="Index" class="btn btn-dark form-control btn-sm" style="height:35px;">Regresar</a>
+                        </div>
+                        <div class="col-12 col-md-6 ">
+                            @if(Model.ExisteEnCarro)
+			                {
+			                   <a asp-action="RemoverDeCarro" asp-route-Id="@Model.Producto.Id" class="btn btn-danger form-control btn-sm" style="height:35px ;">Remover del Carro</a>	
+			                }
+			               else
+		                   {
+                              <button type="submit" asp-route-Id="@Model.Producto.Id" class="btn btn-warning form-control btn-sm " style="height:35px ;">Agregar al Carro</button>
+			               }
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
