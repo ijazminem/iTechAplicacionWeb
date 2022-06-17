@@ -15,7 +15,7 @@
         
 @foreach(var cat in Model.Categorias)
 {
-    <button class="btn btn-outline-secundary filter-button" data-filter="@cat.NombreCategoria.Replace(' ','_')">
+    <button class="btn btn-dark filter-button" data-filter="@cat.NombreCategoria.Replace(' ','_')">
         @cat.NombreCategoria
     </button>
     
